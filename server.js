@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose'); //requiring our mongoose DB
 mongoose.connect(); //connects to specific mongoose DB - need to specify location
-//accessing the BearSchema we created in models/bear
+var Item = require('./app/models/item'); //accessing the itemSchema we created in models/item
 
 //config app to use bodyParser
 // allows us to get data from POSTs
@@ -32,7 +32,21 @@ router.get('/', function(req, res) {
   res.send('Hello World!');
 });
 
-
+router.route('/items')
+  .post(function(req, res) {
+    var item = new Item();
+    item.name = req.body.name;
+    item.save(function(err) {
+      if (err) { res.send(err); }
+      res.json({ message: 'Item created!' });
+    });
+    .get(function(req, res) {
+      item.find(function(err, items) {
+        if (err) { res.send(err); }
+        res.json(items)
+      })
+    })
+  });
 //to be continued..
 
 
