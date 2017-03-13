@@ -1,11 +1,20 @@
-// package.json
-
 {
-    "name": "node-api",
-    "main": "server.js",
-    "dependencies": {
-        "express": "~4.0.0",
-        "mongoose": "~3.6.13", //if SQLite, change here
-        "body-parser": "~1.0.1"
-    }
+  "name": "send",
+  "version": "1.0.0",
+  "description": "Selectively Enjoy Next Dinner's Hard Alcohol List Proactively - MVP AHHHHHH",
+  "author": "Jason Kim <kasonjim@gmail.com",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "express": "^4.15.2",
+    "express-partials": "^0.2.0"
+  }
 }
