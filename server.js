@@ -7,7 +7,7 @@ var app = express(); //define our app using express
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose'); //requiring our mongoose DB
-mongoose.connect(); //connects to specific mongoose DB - need to specify location
+mongoose.connect('mongodb://localhost/mylist'); //connects to specific mongoose DB - need to specify location
 var Item = require('./app/models/item'); //accessing the itemSchema we created in models/item
 
 //config app to use bodyParser
@@ -15,7 +15,7 @@ var Item = require('./app/models/item'); //accessing the itemSchema we created i
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080; //sets our PORT
+var port = process.env.PORT || 3000; //sets our PORT
 
 /*-----------------------------------------------------------------------*/
 //SET ROUTES FOR API
@@ -59,6 +59,8 @@ app.use('/api', router);
 app.list(port, function() {
   console.log('Connected to the port: ', port);
 });
+
+module.exports = app;
 //to run server, type node server.js in the terminal command line
 
 /*-----------------------------------------------------------------------

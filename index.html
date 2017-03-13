@@ -6,6 +6,16 @@
   </head>
   <body>
     <h1>MyList</h1>
-    <div ng-view></div>
+    <div id='container' ng-controller='ListController'>
+      <!-- <form> NEED TO ADD SUBMIT FORM </form>  -->
+      <button onclick='addToList()'>Add Item To List</button>
+      <ul>
+        <li class='list' ng-repeat='item in items'>{{ link }}</li>
+      </ul>
+    </div>
+    <!-- Not sure if i need script here or elsewhere or not at all -->
     <script src='/app.js'></script>
+    <script src='/list.js'></script>
+    <script src='/models/item.js'></script>
   </body>
+  </html>
