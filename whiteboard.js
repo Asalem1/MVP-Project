@@ -17,11 +17,14 @@
 // app.post('/list', function(req, res) {
 //   res.json('Your list has been updated');
 // })
+// need index.html
 // need an app.js file
 // need a models DB
-// need a node_modules (created by npm to hold dependencies / packages)
 // package.json for node app and dependencies
 // server.js config our app
+
+// render a list of input items
+// use angular to allow items to be added and removed from view
 
 //EVENTUALLY ESTABLISH CONNECTION TO DB AND HTML
   //IN HTML:
