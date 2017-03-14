@@ -7,8 +7,10 @@
   <body>
     <h1>MyList</h1>
     <div id='container' ng-controller='ListController'>
-      <!-- <form> NEED TO ADD SUBMIT FORM </form>  -->
-      <button onclick='addToList()'>Add Item To List</button>
+      <form>
+        <input type='text'>
+       </form>
+      <button type='submit'>Itemize</button>
       <ul>
         <li class='list' ng-repeat='item in items'>{{ link }}</li>
       </ul>

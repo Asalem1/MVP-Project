@@ -6,9 +6,9 @@ var express = require('express'); // calls express
 var app = express(); //define our app using express
 var bodyParser = require('body-parser');
 
-var mongoose = require('mongoose'); //requiring our mongoose DB
-mongoose.connect('mongodb://localhost/mylist'); //connects to specific mongoose DB - need to specify location
-var Item = require('./app/models/item'); //accessing the itemSchema we created in models/item
+// var mongoose = require('mongoose'); //requiring our mongoose DB
+// mongoose.connect('mongodb://localhost/mylist'); //connects to specific mongoose DB - need to specify location
+// var Item = require('/models/item'); //accessing the itemSchema we created in models/item
 
 //config app to use bodyParser
 // allows us to get data from POSTs
@@ -22,13 +22,21 @@ app.listen(port, function() {
   console.log('Connected to the port: ', port);
 });
 
+// app.use('/api', router);
 module.exports = app;
 //to run server, type node server.js in the terminal command line
 
-// /*-----------------------------------------------------------------------
+app.get('/', function(req, res) {
+  console.log(req)
+  res.send('Hello World');
+})
 
-// /*-----------------------------------------------------------------------*/
-// //SET ROUTES FOR API
+app.post('/', function(req, res) {
+  res.send('This is a post request');
+})
+
+/*-----------------------------------------------------------------------*/
+//SET ROUTES FOR API
 // var router = express.Router();
 
 // // we must add middleware to use for all our requests (GET, POST, etc...)
@@ -42,7 +50,7 @@ module.exports = app;
 //   res.send('Hello World!');
 // });
 
-// router.route('/items')
+// router.route('models/items')
 //   .post(function(req, res) {
 //     var item = new Item();
 //     item.name = req.body.name;
@@ -57,9 +65,9 @@ module.exports = app;
 //       })
 //     })
 //   });
-// //to be continued..
+//to be continued..
 
 
-// // register our routes
-// // all of our routes will be prefixed with /api
-// app.use('/api', router);
+// register our routes
+// all of our routes will be prefixed with /api
+/*-----------------------------------------------------------------------*/
