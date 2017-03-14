@@ -7,13 +7,17 @@ var app = express(); //define our app using express
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose'); //requiring our mongoose DB
 
-// mongoose.connect('mongodb://localhost/mylist'); //connects to specific mongoose DB - need to specify location
+mongoose.connect('mongodb://heroku_tm5h3qpv:58hkbj01dbol21ee2vb99s8680@ds131480.mlab.com:31480/heroku_tm5h3qpv'); //connects to specific mongoose DB - need to specify location
 // var Item = require('/models/item'); //accessing the itemSchema we created in models/item
+mongoose.once(function(req, res) {
+  console.log('connected');
+})
 
 //config app to use bodyParser
 // allows us to get data from POSTs
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, './')));
 // app.use(express.static(__dirname + 'index.html'))
 var port = process.env.PORT || 3000; //sets our PORT
 // /*-----------------------------------------------------------------------*/
@@ -23,7 +27,6 @@ app.listen(port, function() {
 });
 
 // app.use('/api', router);
-module.exports = app;
 //to run server, type node server.js in the terminal command line
 
 app.get('/', function(req, res) {
@@ -71,3 +74,4 @@ app.post('/', function(req, res) {
 // register our routes
 // all of our routes will be prefixed with /api
 /*-----------------------------------------------------------------------*/
+module.exports = app;
