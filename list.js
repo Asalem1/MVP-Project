@@ -1,9 +1,11 @@
-angular.module('mylist.list', [])
-.controller('ListController', function($scope, item) {
-  // var list = {};
-  // var addToList = function() {
-
-  // }
+angular.module('list', [])
+.controller('ListController', function($scope) {
+  $scope.items = [];
+  $scope.addToList = function(item) {
+    console.log('hi')
+    $scope.items.push(item);
+    $scope.item = '';
+  }
   // var getList = function() {
   //   list.getAll()
   //     .then(function(res) {

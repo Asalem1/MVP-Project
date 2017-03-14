@@ -5,8 +5,8 @@
 var express = require('express'); // calls express
 var app = express(); //define our app using express
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose'); //requiring our mongoose DB
 
-// var mongoose = require('mongoose'); //requiring our mongoose DB
 // mongoose.connect('mongodb://localhost/mylist'); //connects to specific mongoose DB - need to specify location
 // var Item = require('/models/item'); //accessing the itemSchema we created in models/item
 
@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 // allows us to get data from POSTs
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+// app.use(express.static(__dirname + 'index.html'))
 var port = process.env.PORT || 3000; //sets our PORT
 // /*-----------------------------------------------------------------------*/
 //START SERVER

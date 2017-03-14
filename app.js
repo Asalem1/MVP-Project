@@ -1,5 +1,5 @@
 angular.module('mylist', [
-  'mylist.list',
+  'list',
   'ngRoute'
   ])
 .config(function ($routeProvider) {
