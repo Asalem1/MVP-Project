@@ -1,7 +1,27 @@
 body{
+  background-color: grey;
+}
+button {
+  border-radius: 10px;
+  font-family: 'Lobster Two', cursive;
+  font-size: 15px;
+}
 
+input {
+  border-radius: 10px;
+  font-family: 'Lobster Two', cursive;
+  font-size: 20px;
 }
 
 h1{
   font-family: 'Lobster Two', cursive;
+  color: orange;
+  font-size: 55px;
+  margin: 5px;
+  padding: 10px;
+}
+
+li{
+  font-family: 'Parisienne', cursive;
+  font-size: 35px;
 }

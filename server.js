@@ -1,30 +1,10 @@
 /*-----------------------------------------------------------------------*/
 //BASIC SETUP
-//step 1 is to call the packages we need from our package.json (when installed via npm install)
-//before starting, run npm install
 var express = require('express'); // calls express
 var app = express(); //define our app using express
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose'); //requiring our mongoose DB
 
-
-// mongoose.connect('mongodb://heroku_tm5h3qpv:58hkbj01dbol21ee2vb99s8680@ds131480.mlab.com:31480/heroku_tm5h3qpv'); //connects to specific mongoose DB - need to specify location
-// var Item = require('/models/item'); //accessing the itemSchema we created in models/item
-var port = process.env.PORT ? uri = 'mongodb://heroku_tm5h3qpv:58hkbj01dbol21ee2vb99s8680@ds131480.mlab.com:31480/heroku_tm5h3qpv' : uri = 'mongodb://localhost/57412';
-mongoose.connect(port)
-mongoose.once(function(req, res) {
-  console.log('connected');
-})
-
-
-//config app to use bodyParser
-// allows us to get data from POSTs
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, './')));
-// app.use(express.static(__dirname + 'index.html'))
-
-mongoose.connect(uri)
 /*-----------------------------------------------------------------------*/
 var ItemSchema = mongoose.Schema({
   name: String
@@ -33,6 +13,24 @@ var ItemSchema = mongoose.Schema({
 var Item = mongoose.model('Item', ItemSchema);
 
 /*-----------------------------------------------------------------------*/
+
+
+var port = 3000
+// var port = process.env.PORT ? uri = 'mongodb://heroku_tm5h3qpv:58hkbj01dbol21ee2vb99s8680@ds131480.mlab.com:31480/heroku_tm5h3qpv' : uri = 'mongodb://localhost/3000/';
+mongoose.connect('mongodb://localhost/Item');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+ console.log('we connected')
+});
+
+//config app to use bodyParser
+// allows us to get data from POSTs
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/'));
+
 //START SERVER
 app.listen(port, function() {
   console.log('Connected to the port: ', port);
@@ -42,12 +40,15 @@ app.listen(port, function() {
 //to run server, type node server.js in the terminal command line
 
 app.get('/', function(req, res) {
-  console.log(req)
-  res.send('Hello World');
+
+  console.log(req);
+  // res.send('Hello World');
+  // retrieve existing DB info and give to the view
 })
 
 app.post('/', function(req, res) {
-  res.send('This is a post request');
+  console.log(req);
+
   // send body info to DB
 })
 
