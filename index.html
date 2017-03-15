@@ -7,11 +7,11 @@
     <meta charset="utf-8">
   </head>
   <body ng-view>
-    <h1>MyList</h1>
+    <h1> -> MyList <- </h1>
     <div id='container' ng-controller='ListController'>
       <form ng-submit='addToList(item)'>
         <input ng-model='item' type='text' />
-        <button type='submit'>Add to List</button>
+        <button type='submit'> - List - Me - </button>
       </form>
       <ul>
       <!-- may need an ng-init=loadAll() to load from DB on refresh -->

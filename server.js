@@ -40,12 +40,10 @@ app.listen(port, function() {
 
 app.get('/myList', function(req, res) {
   res.send('Hello World!')
-  // retrieve existing DB info and give to the view
 })
 
 app.post('/myList', function(req, res) {
   res.send('This is a post');
-  // send body info to DB
 })
 
 /*-----------------------------------------------------------------------*/

@@ -1,10 +1,15 @@
 body{
-  background-color: grey;
+  background-color: #DBDBD9;
 }
+
 button {
   border-radius: 10px;
   font-family: 'Lobster Two', cursive;
   font-size: 15px;
+  background-color: purple;
+  padding: 4px;
+  color: #42B4E6;
+  opacity: 0.8;
 }
 
 input {
@@ -15,13 +20,41 @@ input {
 
 h1{
   font-family: 'Lobster Two', cursive;
-  color: orange;
+  color: #42B4E6;
   font-size: 55px;
   margin: 5px;
   padding: 10px;
+}
+ul{
+  padding: 10px;
+  opacity: 0.7;
+}
+
+form{
+  background-color: #42B4E6;
+  opacity: 0.9;
+  border-radius: 10px;
 }
 
 li{
   font-family: 'Parisienne', cursive;
   font-size: 35px;
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 15px;
+  margin: 5px;
+  max-width: 250px;
+  column-count: 3;
+  column-width: 300px;
+}
+
+li:hover {
+  background-color: #42B4E6;
+  opacity:0.8;
+  color: black;
+}
+
+button:hover {
+  background-color: white;
+  color: purple;
 }
