@@ -15,7 +15,7 @@
       </form>
       <ul>
       <!-- may need an ng-init=loadAll() to load from DB on refresh -->
-        <li class='list' ng-repeat='item in items track by $index' ng-click='delete($index)'>{{item}}</li>
+        <li class='list' ng-repeat='item in lists track by $index' ng-click='delete($index)'>{{item}}</li>
       </ul>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>

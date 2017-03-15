@@ -2,21 +2,20 @@ angular.module('list', [])
 
 .factory('Items', function ($http) {
   var addOne = function (item) {
-    console.log(item);
-    return $http({
+    $http({
       method: 'POST',
-      url: '/api/list',
-      data: item
+      url: '/myList',
+      data: { "item": item }
     });
   };
 
-  var getAll = function() {
+  var getAll = function(callback) {
     return $http({
       method: 'GET',
-      url: '/api/list',
+      url: '/myList',
     })
     .then(function (resp) {
-      return resp.data;
+      callback(resp.data);
     });
   };
 
@@ -27,17 +26,18 @@ angular.module('list', [])
 })
 
 .controller('ListController', function($scope, Items) {
-  $scope.items = [];
+  $scope.lists = [];
   $scope.addToList = function(item) {
-    $scope.items.push(item);
+    $scope.lists.push(item);
+    Items.addOne(item)
     $scope.item = '';
   }
   $scope.delete = function(item) {
-    $scope.items.splice(item, 1);
+    $scope.lists.splice(item, 1);
   }
   $scope.obj = {};
   var getList = function(item) {
-    Items.getAll({item: item})
+    Items.getAll()
       .them(function(resp) {
         $scope.obj.item = resp;
       })
